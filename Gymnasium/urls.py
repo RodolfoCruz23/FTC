@@ -26,6 +26,8 @@ urlpatterns = [
     path('reports/', include('reports.urls')),
     path('', include('accounts.urls')),
     path('books/', include('books.urls')),
+    path('contact/', include('contact.urls')),
+    path('schedules/', include('schedules.urls')),
 ]
 
 # for handling profile photos

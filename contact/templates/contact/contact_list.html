@@ -1,0 +1,28 @@
+<h1>Contacts</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for contact in object_list %}
+    <tr>
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.pages }}</td>
+    <td><a href="{% url "contact_view" contact.id %}">view</a></td>
+    <td><a href="{% url "contact_edit" contact.id %}">edit</a></td>
+    <td><a href="{% url "contact_delete" contact.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "contact_new" %}">New</a>
