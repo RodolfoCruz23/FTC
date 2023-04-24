@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'books',
     'contact',
     'schedules',
-    'galeria',
     'personal',
+    'photo.apps.PhotoConfig',
+    'gallery',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,6 @@ WALLPAPER_URL = os.path.normpath(MEDIA_URL+'/wallpaper/')
 
 PHOTOS_FILES = os.path.normpath(MEDIA_ROOT+'/photos')
 PHOTOS_URL = os.path.normpath(MEDIA_URL+'/photos/')
+
+# in settings.py
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

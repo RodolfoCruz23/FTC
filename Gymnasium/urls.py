@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from django.conf.urls.static import static
 
 from Gym import views
 from Gym.views import home
@@ -35,7 +34,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('schedules/', include('schedules.urls')),
     path('', include('personal.urls')),
+    path('', include('photo.urls')),
+    path('gallery/', include('gallery.urls')),
 ]
 
-# for handling profile photos
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

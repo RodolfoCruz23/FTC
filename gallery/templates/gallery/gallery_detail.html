@@ -1,0 +1,9 @@
+<h1>Gallery Details</h1>
+<h2>Name: {{object.name}}</h2>
+Pages: {{ object.pages }}
+{% if object.image %}
+  <h2>Image:</h2>
+  <img src="{{ object.image.url }}" alt="{{ object.name }} image">
+{% else %}
+  <p>No image available.</p>
+{% endif %}

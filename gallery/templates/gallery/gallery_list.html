@@ -1,0 +1,26 @@
+<h1>Gallery</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Pages</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for gallery in object_list %}
+    <tr>
+    <td>{{ gallery.name }}</td>
+    <td>{{ gallery.pages }}</td>
+    <td><a href="{% url "gallery_view" gallery.id %}">view</a></td>
+    <td><a href="{% url "gallery_edit" gallery.id %}">edit</a></td>
+    <td><a href="{% url "gallery_delete" gallery.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "gallery_new" %}">New</a>
