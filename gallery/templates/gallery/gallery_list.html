@@ -1,3 +1,5 @@
+
+
 <h1>Gallery</h1>
 
 <table border="1">
@@ -5,6 +7,7 @@
     <tr>
     <th>Name</th>
     <th>Pages</th>
+    <th>Image Preview</th>
     <th>View</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -15,10 +18,15 @@
     <tr>
     <td>{{ gallery.name }}</td>
     <td>{{ gallery.pages }}</td>
+    <td><img src="{{ gallery.image.url }}" alt="{{ gallery.name }}" width="100px" height="100px"></td>
     <td><a href="{% url "gallery_view" gallery.id %}">view</a></td>
     <td><a href="{% url "gallery_edit" gallery.id %}">edit</a></td>
     <td><a href="{% url "gallery_delete" gallery.id %}">delete</a></td>
     </tr>
+    {% if forloop.counter|divisibleby:6 %}
+        </tbody>
+        <tbody>
+    {% endif %}
     {% endfor %}
 </tbody>
 </table>
