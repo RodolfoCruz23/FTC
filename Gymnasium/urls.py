@@ -18,16 +18,23 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from Gym import views
+from Gym.views import home
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.about, name='contact'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('notifications/', include('notifications.urls')),
     path('reports/', include('reports.urls')),
-    path('', include('accounts.urls')),
+    path('login', include('accounts.urls')),
     path('books/', include('books.urls')),
     path('contact/', include('contact.urls')),
     path('schedules/', include('schedules.urls')),
+    path('', include('personal.urls')),
 ]
 
 # for handling profile photos
