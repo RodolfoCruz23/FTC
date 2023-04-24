@@ -2,9 +2,9 @@ from django.contrib import admin
 from .models import Instructor, PersonalizedWorkout, Trainer
 
 
-@admin.register(Instructor)
-class InstructorAdmin(admin.ModelAdmin):
-    list_display = ['name', 'experience_years']
+@admin.register(Instructor) # decorator
+class InstructorAdmin(admin.ModelAdmin): # class
+    list_display = ['name', 'experience_years'] # attribute
 
 
 @admin.register(PersonalizedWorkout)

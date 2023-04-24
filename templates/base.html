@@ -76,5 +76,36 @@
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     {% block javascript %}{% endblock %}
+  <!-- Bottom Navigation -->
+<nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Website 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Website 2</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <span class="nav-link">Follow us: </span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 30px"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 30px"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 30px"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   </body>
 </html>

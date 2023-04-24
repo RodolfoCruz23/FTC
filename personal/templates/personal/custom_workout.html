@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+  <h1>Custom Workout</h1>
+  <form method="post">
+    {% csrf_token %}
+    <label for="workout_name">Workout Name:</label>
+    <input type="text" id="workout_name" name="workout_name"><br><br>
+    <label for="exercises">Exercises:</label>
+    <textarea id="exercises" name="exercises"></textarea><br><br>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
+

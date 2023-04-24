@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ instructor.name }}</h1>
+  <p>{{ instructor.bio }}</p>
+  <p>Certifications: {{ instructor.certifications }}</p>
+  <p>Experience: {{ instructor.experience }}</p>
+{% endblock %}
