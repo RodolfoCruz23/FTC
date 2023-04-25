@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'personal',
     'photo.apps.PhotoConfig',
     'gallery',
+    'calculatorIMC',
+    'social_media',
+    'membership',
 ]
 
 MIDDLEWARE = [
