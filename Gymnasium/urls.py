@@ -36,6 +36,9 @@ urlpatterns = [
     path('', include('personal.urls')),
     path('', include('photo.urls')),
     path('gallery/', include('gallery.urls')),
+    path('calculatorIMC/', include('calculatorIMC.urls')),
+    path('social_media/', include('social_media.urls')),
+    path('membership/', include('membership.urls')),
 ]
 
 
