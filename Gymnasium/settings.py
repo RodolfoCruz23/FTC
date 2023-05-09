@@ -56,6 +56,9 @@ INSTALLED_APPS = [
     'calculatorIMC',
     'social_media',
     'membership',
+    'calendario',
+    'maps',
+
 ]
 
 MIDDLEWARE = [

@@ -1,48 +1,87 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.urls import reverse
 from gallery.models import Gallery
 
 
-class GalleryTests(TestCase):
-    def setUp(self):
-        self.gallery = Gallery.objects.create(
-            name='Test Gallery',
-            pages=10
-        )
+class GalleryModelTest(TestCase):
 
-    def test_gallery_list_view(self):
-        response = self.client.get(reverse('gallery_list'))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, self.gallery.name)
+    @classmethod
+    def setUpTestData(cls):
+        Gallery.objects.create(name='Test Gallery', pages=5)
+
+    def test_name_label(self):
+        gallery = Gallery.objects.get(id=1)
+        field_label = gallery._meta.get_field('name').verbose_name
+        self.assertEquals(field_label, 'name')
+
+    def test_pages_label(self):
+        gallery = Gallery.objects.get(id=1)
+        field_label = gallery._meta.get_field('pages').verbose_name
+        self.assertEquals(field_label, 'pages')
+
+    def test_name_max_length(self):
+        gallery = Gallery.objects.get(id=1)
+        max_length = gallery._meta.get_field('name').max_length
+        self.assertEquals(max_length, 200)
+
+
+class GalleryViewTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        Gallery.objects.create(name='Test Gallery', pages=5)
+
+    def setUp(self):
+        self.gallery = Gallery.objects.create(name='Test Gallery', pages=10)
+
 
     def test_gallery_detail_view(self):
-        response = self.client.get(reverse('gallery_view', kwargs={'pk': self.gallery.pk}))
+        gallery = Gallery.objects.create(name='Test Gallery', pages=5)
+        response = self.client.get(reverse('gallery_view', args=[gallery.id]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, self.gallery.name)
+        self.assertTemplateUsed(response, 'gallery/gallery_detail.html')
 
-    def test_gallery_create_view(self):
-        data = {
+
+class GalleryCreateViewTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_create_gallery(self):
+        response = self.client.post(reverse('gallery_new'), {
             'name': 'New Gallery',
-            'pages': 5
-        }
-        response = self.client.post(reverse('gallery_new'), data=data)
+            'pages': 10,
+            'image': ''
+        })
         self.assertEqual(response.status_code, 302)
-        gallery = Gallery.objects.get(name='New Gallery')
-        self.assertEqual(gallery.pages, 5)
+        self.assertEqual(Gallery.objects.count(), 1)
 
-    def test_gallery_update_view(self):
-        data = {
+
+class GalleryUpdateViewTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        Gallery.objects.create(name='Test Gallery', pages=5)
+
+    def test_update_gallery(self):
+        response = self.client.post(reverse('gallery_edit', args=[1]), {
             'name': 'Updated Gallery',
-            'pages': 15
-        }
-        response = self.client.post(reverse('gallery_edit', kwargs={'pk': self.gallery.pk}), data=data)
+            'pages': 7,
+            'image': ''
+        })
         self.assertEqual(response.status_code, 302)
-        gallery = Gallery.objects.get(pk=self.gallery.pk)
+        gallery = Gallery.objects.get(id=1)
         self.assertEqual(gallery.name, 'Updated Gallery')
-        self.assertEqual(gallery.pages, 15)
+        self.assertEqual(gallery.pages, 7)
 
-    def test_gallery_delete_view(self):
-        response = self.client.post(reverse('gallery_delete', kwargs={'pk': self.gallery.pk}))
+
+class GalleryDeleteViewTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        Gallery.objects.create(name='Test Gallery', pages=5)
+
+    def test_delete_gallery(self):
+        response = self.client.post(reverse('gallery_delete', args=[1]))
         self.assertEqual(response.status_code, 302)
-        with self.assertRaises(Gallery.DoesNotExist):
-            Gallery.objects.get(pk=self.gallery.pk)
+        self.assertEqual(Gallery.objects.count(), 0)

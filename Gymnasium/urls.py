@@ -19,6 +19,7 @@ from django.conf import settings
 
 from Gym import views
 from Gym.views import home
+from maps.views import map_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,6 +40,8 @@ urlpatterns = [
     path('calculatorIMC/', include('calculatorIMC.urls')),
     path('social_media/', include('social_media.urls')),
     path('membership/', include('membership.urls')),
+    path('', include('calendario.urls')),
+    path('maps/', map_view, name='map'),
 ]
 
 
