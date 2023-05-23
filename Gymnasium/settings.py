@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'membership',
     'calendario',
     'maps',
+    'membershipform'
 
 ]
 

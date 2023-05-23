@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.urls import include
 
 from Gym import views
 from Gym.views import home
@@ -42,6 +43,7 @@ urlpatterns = [
     path('membership/', include('membership.urls')),
     path('', include('calendario.urls')),
     path('maps/', map_view, name='map'),
+    path('membershipform/', include('membershipform.urls')),
 ]
 
 

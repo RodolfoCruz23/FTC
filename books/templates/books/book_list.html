@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
 <h1>Books</h1>
 
 <table border="1">
@@ -24,3 +29,5 @@
 </table>
 
 <a href="{% url "book_new" %}">New</a>
+
+{% endblock %}
