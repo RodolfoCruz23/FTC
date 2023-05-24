@@ -4,7 +4,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -15,8 +15,8 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/"><img src="{% static 'images/ftclogo.jpg' %}" class="img-fluid" style="width: 200px"></a>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+
       <!-- Power<span style="color: red">Pack</span> Fitness Club -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -77,31 +77,39 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     {% block javascript %}{% endblock %}
   <!-- Bottom Navigation -->
-<nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand navbar navbar-dark" style="background-color: #24436E;">
+   <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
   <div class="container">
-    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+    <div class=" w-200 dual-collapse2 order-1 order-md-0">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Website 1</a>
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Website 2</a>
+          <a class="nav-link" href="#">Products</a> <!---agregar los urls luego !----->
+        </li>
+          <li class="nav-item">
+          <a  href="{% url 'about' %}" class="nav-link" >About</a>
+        </li>
+          <li class="nav-item">
+          <a href="{% url 'contact' %}" class="nav-link" >Contact</a>
         </li>
       </ul>
     </div>
-    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+    <div class=" w -200 dual-collapse2 order-2 order-md-2">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <span class="nav-link">aFollow us: </span>
+          <span class="nav-link">Follow us: </span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 30px"></a>
+          <a class="nav-link" href="https://www.facebook.com/ftctraining.gym/?locale=es_LA"><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
         </li>
+        <!--quitar comentario para liberar el Tiwter-->
+    <!---    <li class="nav-item">
+          <a class="nav-link" href="#"><img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
+        </li> ----->
         <li class="nav-item">
-          <a class="nav-link" href="#"><img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 30px"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 30px"></a>
+          <a class="nav-link" href="https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA=="><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 25px"></a>
         </li>
       </ul>
     </div>

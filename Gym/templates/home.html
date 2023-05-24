@@ -15,15 +15,15 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/"><img src="{% static 'images/ftclogo.jpg' %}" class="img-fluid" style="width: 200px"></a>
+<nav class="navbar fixed-top navbar-expand navbar navbar-dark" style="background-color: #24436E;">
+   <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
       <!-- Power<span style="color: red">Pack</span> Fitness Club -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       {% if request.user.username %}
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mx-auto">
           <li class="nav-item {% if request.resolver_match.url_name == 'members' %} active {% endif %}">
             <a class="nav-link" href="{% url 'members'%}">New Admission<span class="sr-only">(current)</span></a>
           </li>
@@ -78,14 +78,45 @@
     {% block javascript %}{% endblock %}
 
     <!-- Services -->
-		<nav>
-			<ul>
-				<li><a href="{% url 'home' %}">Home</a></li>
-				<li><a href="{% url 'about' %}">About Us</a></li>
-				<li><a href="{% url 'contact' %}">Contact Us</a></li>
-                <li><a href="{% url 'personal:instructor_list' %}">Instructors</a></li>
-			</ul>
-		</nav>
+			<nav class="navbar fixed-top navbar-expand navbar navbar-dark" style="background-color: #24436E;">
+   <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
+  <div class="container">
+    <div class=" w-200 dual-collapse2 order-1 order-md-0">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Products</a> <!---agregar los urls luego !----->
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" >About</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link"  href="{% url 'contact' %} ">Contact</a>
+        </li>
+      </ul>
+    </div>  <!--- Enlaces a las redes sociales--->
+    <div class=" w -200 dual-collapse2 order-2 order-md-2">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <span class="nav-link">Follow us: </span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.facebook.com/ftctraining.gym/?locale=es_LA"><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
+        </li>
+          <!--- Enlaces para twiter  activar cuando se abra-->
+
+     <!---   <li class="nav-item">
+          <a class="nav-link" href="#"><img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
+        </li> !--->
+        <li class="nav-item">
+          <a class="nav-link" href="https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA=="><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 25px"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     <!-- End Services -->
 
 
@@ -116,8 +147,9 @@
          <div  class="e214_266"></div>
          <div class=e217_425>
             <div  class="e217_427"></div>
-            <span  class="e217_428">2Q9R+4MW, C. 11 Paso Flores, Agonía, Provincia de Alajuela, Alajuela</span>
+            <span class="e217_428"   > </span>
             <div  class="e217_429"></div>
+       <!--- Inicio del formulario--->
             <div class=e217_430>
                <div  class="e217_431"></div>
             </div>
@@ -160,38 +192,45 @@
             <div  class="e217_426"></div>
          </div>
          <div class=e218_690>
-            <div class=e218_691><span  class="e218_692">Paliteh</span></div>
-            <span  class="e218_695">Подпишись на нас</span>
+            <div class=e218_691><span  class="e218_692">Costa Rica</span></div>
+            <span  class="e218_695">Gimnasio</span>
             <div class=e218_697>
                <div class=e218_698>
                   <div class=e218_699>
-                     <div class=e218_700>
-                        <div  class="e218_701"></div>
+                    <div class=e218_700>
+           
                      </div>
                   </div>
-                  <span  class="e218_702">/kstu.kg</span>
+             <!--- Enlaces a las redes sociales--->
+               <a href= https://www.facebook.com/ftctraining.gym/?locale=es_LA> <span class="e218_702">Facebook</span> </a>
+                     <a class="nav-link" href= https://www.facebook.com/ftctraining.gym/?locale=es_LA><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 35px" ></a>
                </div>
                <div class=e218_703>
                   <div class=e218_704>
                      <div class=e218_705>
-                        <div  class="e218_706"></div>
+
+
                      </div>
                   </div>
-                  <span  class="e218_707">kstu.kg</span>
+                   <a href= https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA==> <span class="e218_707">Instagram</span> </a>
+                      <div class=e218_703>
+                           </div>
+                    <a class="nav-link" href= https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA==><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 35px" ></a>
                </div>
             </div>
+             <!--- Palabras de Abajo!--->
             <div class=e218_708>
-               <div class=e218_709><span  class="e218_710">Об университете</span></div>
-               <div class=e218_711><span  class="e218_712">Абитуриенту</span></div>
-               <div class=e218_713><span  class="e218_714">Студентам</span></div>
-               <div class=e218_715><span  class="e218_716">Курсы</span></div>
-               <div class=e218_717><span  class="e218_718">Контакты</span></div>
+               <div class=e218_709><span  class="e218_710">Costa Rica</span></div>
+               <div class=e218_711><span  class="e218_712">Profresional</span></div>
+               <div class=e218_713><span  class="e218_714">Gym</span></div>
+               <div class=e218_715><span  class="e218_716">Training</span></div>
+               <div class=e218_717><span  class="e218_718">2023</span></div>
             </div>
-            <span  class="e218_719">© Paliteh. Все права защищены, 2021</span>
+            <span  class="e218_719">© Functional Training Calisthenic, 2023</span>
          </div>
 
 
-
+ </div>
   <!--end body-->
 
 
