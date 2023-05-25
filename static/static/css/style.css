@@ -60,3 +60,20 @@ color: black;
 color: red;
 font-weight: bold;
 }
+
+.my-5 {
+    margin-bottom: 3rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.col-md-12 {
+  width: 100%;
+}
+
+.col-md-6 {
+  width: 50%;
+}
+

@@ -1,84 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
     <!-- Custom -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-
-      <!-- Power<span style="color: red">Pack</span> Fitness Club -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      {% if request.user.username %}
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item {% if request.resolver_match.url_name == 'members' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'members'%}">New Admission<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item  {% if request.resolver_match.url_name == 'view_member' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'view_member'%}">View All Members</a>
-          </li>
-          <li class="nav-item {% if request.resolver_match.url_name == 'reports' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'reports' %}">Reports</a>
-          </li>
-          <li class="nav-item  {% if request.resolver_match.url_name == 'notifications' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'notifications'%}">Notifications <span class="badge badge-success">{{ subs_end_today_count }}</span></a>
-          </li>
-
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item {% if request.resolver_match.url_name == 'change_password' %} active {% endif %}">
-              <a class="nav-link" href="{% url 'change_password'%}">Change Password</a>
-          </li>
-          <li class="nav-item  {% if request.resolver_match.url_name == 'set_wallpaper' %} active {% endif %}">
-              <a class="nav-link" href="{% url 'set_wallpaper'%}">Wallpaper<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout'%}">Logout</a>
-          </li>
-        </ul>
-        {% endif %}
-
-        <!-- <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-        </ul> -->
-      </div>
-    </nav>
-
-    {% block without_container %}
-
-    {% endblock %}
-
-    <div class="container">
-        {% block content %}
-
-        {% endblock %}
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    {% block javascript %}{% endblock %}
-  <!-- Bottom Navigation -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+{% block sidebar %}
 <nav class="navbar fixed-top navbar-expand navbar navbar-dark" style="background-color: #24436E;">
-   <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
+  <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
   <div class="container">
     <div class=" w-200 dual-collapse2 order-1 order-md-0">
       <ul class="navbar-nav mx-auto">
@@ -88,11 +25,11 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Servicios</a> <!---agregar los urls luego !----->
         </li>
-          <li class="nav-item">
-          <a  href="{% url 'about' %}" class="nav-link" >About</a>
+        <li class="nav-item">
+          <a href="{% url 'about' %}" class="nav-link">About</a>
         </li>
-          <li class="nav-item">
-          <a href="{% url 'contact' %}" class="nav-link" >Contact</a>
+        <li class="nav-item">
+          <a href="{% url 'contact' %}" class="nav-link">Contact</a>
         </li>
       </ul>
     </div>
@@ -105,15 +42,97 @@
           <a class="nav-link" href="https://www.facebook.com/ftctraining.gym/?locale=es_LA"><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
         </li>
         <!--quitar comentario para liberar el Tiwter-->
-    <!---    <li class="nav-item">
+        <!---    <li class="nav-item">
           <a class="nav-link" href="#"><img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
         </li> ----->
         <li class="nav-item">
           <a class="nav-link" href="https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA=="><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 25px"></a>
         </li>
+        <!-- Add More Options button -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreOptionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <img src="{% static 'images/icons8-menú-50.png' %}" class="img-fluid" style="width: 25px">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="moreOptionsDropdown">
+            <a class="dropdown-item" href="#">Option 1</a>
+            <a class="dropdown-item" href="#">Option 2</a>
+            <a class="dropdown-item" href="#">Option 3</a>
+            <!-- Add more options as needed -->
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-  </body>
+{% endblock %}
+
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
+            <!-- Main Image -->
+            <div class="container-fluid px-0"> <!-- Added "px-0" class to remove padding -->
+                <img src="{% static 'images/main_image.jpg' %}" style="width: 100%;"> <!-- Added "w-100" class to make the image full width -->
+            </div>
+
+            <!-- Main Content -->
+            <div class="my-5">
+                <h1>Welcome to My Website!</h1>
+                <p>This is the main content of your page.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bnav %}
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <!-- Bottom Navigation -->
+        <nav class="navbar fixed-bottom navbar-expand navbar-dark"  style="background-color: #24436E;>
+            <div class="container">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <span class="nav-link">Contáctenos:</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/ftctraining.gym/?locale=es_LA">
+                            <img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 25px">
+                            <span class="nav-link-text">Facebook</span>
+                        </a>
+                    </li>
+                    <!-- Uncomment to include Twitter icon -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 25px">
+                            <span class="nav-link-text">Twitter</span>
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA==">
+                            <img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 25px">
+                            <span class="nav-link-text">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://api.whatsapp.com/send/?phone=50686331785&text&type=phone_number&app_absent=0">
+                            <img src="{% static 'images/icons8-whatsapp-48.png' %}" class="img-fluid" style="width: 25px">
+                            <span class="nav-link-text">Whatapp </span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</footer>
+{% endblock %}
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% block javascript %}{% endblock %}
+</body>
 </html>

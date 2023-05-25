@@ -1,238 +1,75 @@
-<!doctype html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% block content %}
+    <!-- Main Block -->
+    {% block main_block %}
+        <div class="container">
+            <!-- Add your main block content here -->
+            <div class="mt-5">
+                <!-- Main Image -->
+                <div class="container-fluid">
+                    <img src="{% static 'images/main_image.jpg' %}" class="img-fluid">
+                </div>
 
-    <!-- Custom -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-    <title>{% block title %}{% endblock %}</title>
-  </head>
-  <body>
-<nav class="navbar fixed-top navbar-expand navbar navbar-dark" style="background-color: #24436E;">
-   <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
-      <!-- Power<span style="color: red">Pack</span> Fitness Club -->
-      <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      {% if request.user.username %}
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item {% if request.resolver_match.url_name == 'members' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'members'%}">New Admission<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item  {% if request.resolver_match.url_name == 'view_member' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'view_member'%}">View All Members</a>
-          </li>
-          <li class="nav-item {% if request.resolver_match.url_name == 'reports' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'reports' %}">Reports</a>
-          </li>
-          <li class="nav-item  {% if request.resolver_match.url_name == 'notifications' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'notifications'%}">Notifications <span class="badge badge-success">{{ subs_end_today_count }}</span></a>
-          </li>
-
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item {% if request.resolver_match.url_name == 'change_password' %} active {% endif %}">
-              <a class="nav-link" href="{% url 'change_password'%}">Change Password</a>
-          </li>
-          <li class="nav-item  {% if request.resolver_match.url_name == 'set_wallpaper' %} active {% endif %}">
-              <a class="nav-link" href="{% url 'set_wallpaper'%}">Wallpaper<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout'%}">Logout</a>
-          </li>
-        </ul>
-        {% endif %}
-
-        <!-- <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-        </ul> -->
-      </div>
-    </nav>
-
-    {% block without_container %}
-
-    {% endblock %}
-
-    <div class="container">
-        {% block content %}
-
-        {% endblock %}
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    {% block javascript %}{% endblock %}
-
-    <!-- Services -->
-			<nav class="navbar fixed-top navbar-expand navbar navbar-dark" style="background-color: #24436E;">
-   <a class="navbar-brand" href="/"><img src="{% static 'images/image_20.png' %}" class="img-fluid" style="width: 45px"></a>
-  <div class="container">
-    <div class=" w-200 dual-collapse2 order-1 order-md-0">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Products</a> <!---agregar los urls luego !----->
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" >About</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link"  href="{% url 'contact' %} ">Contact</a>
-        </li>
-      </ul>
-    </div>  <!--- Enlaces a las redes sociales--->
-    <div class=" w -200 dual-collapse2 order-2 order-md-2">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <span class="nav-link">Follow us: </span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.facebook.com/ftctraining.gym/?locale=es_LA"><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
-        </li>
-          <!--- Enlaces para twiter  activar cuando se abra-->
-
-     <!---   <li class="nav-item">
-          <a class="nav-link" href="#"><img src="{% static 'images/1_Twitter_colored_svg-512.webp' %}" class="img-fluid" style="width: 25px"></a>
-        </li> !--->
-        <li class="nav-item">
-          <a class="nav-link" href="https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA=="><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 25px"></a>
-        </li>
-      </ul>
+                <!-- Main Content -->
+                <div class="my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Nosotros</h1>
     </div>
   </div>
-</nav>
-    <!-- End Services -->
+    <div class="row">
+    <div class="col-md-12">
+      <h2></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Quienes Somos</h3>
+      <p>Somos un Gimnasio enfocado en ayudar, motivar, hacer que las personas mejoren en la actividad física y su deporte mediante el entrenamiento funcional, hipertrofia o calistenia (peso corporal), las cuales mejoran las capacidades físicas básicas y capacidades coordinativas.</p>
 
+    </div>
+    <div class="col-md-6">
+      <h3>Composición Corporal</h3>
+      <p>Proporcionar un enfoque de entrenamiento integral que promueva la salud física y mental de sus miembros.</p>
+      <p>🏆Disminución de Peso</p>
+      <p>🏆Pérdida de Porcentaje Graso</p>
+      <p>🏆Aumento de Masa Muscular o hipertrofia</p>
+      <p>🏆Entrenamiento tomando en cuenta lesiones o padecimientos de las personas</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Misión</h2>
+      <p>Convertirse en una comunidad de entrenamiento de referencia en su área, que promueva el entrenamiento funcional y la calistenia como una forma de vida y que inspire a sus miembros a alcanzar su máximo potencial físico y mental. También podrían buscar expandirse a nivel nacional e incluso internacional, ofreciendo su enfoque de entrenamiento a un público más amplio y diverso.</p>
+    </div>
+    <div class="col-md-6">
+      <h2>Visión</h2>
+      <p>Ofrecer un enfoque de entrenamiento seguro, efectivo y progresivo que ayude a los miembros a alcanzar sus objetivos de fitness y mejorar su calidad de vida en general. Esto podría incluir programas de entrenamiento personalizados, seguimiento del progreso y educación sobre nutrición y otros aspectos de la salud.</p>
+    </div>
+  </div>
+</div>
 
+<div class="my-5">
+  <table class="table">
+    <tr>
+      <td style="background-color: orange; padding: 20px; ">
+        <h1>Contáctenos</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Enviar solicitud</button>
+        </form>
+      </td>
+      <td>
+        <div class="mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15715.92936428271!2d-84.22291485695257!3d10.018315567741432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f91995fd3cd5%3A0xc79413d779094875!2sFT%20%26%20Calisthenics%20Gym!5e0!3m2!1ses-419!2scr!4v1683610314079!5m2!1ses-419!2scr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
 
-  <!-- </body> -->
-
-        <div class=e1_53>
-         <div class=e1_67>
-            <span  class="e1_68">Nosotros</span><span  class="e1_69">Quienes Somos</span><span  class="e1_70"> Ayudar a sus miembros a alcanzar sus objetivos de fitness y mejorar su salud física y mental a través de un enfoque de entrenamiento integral y personalizado.</span>
-            <div class=e1_71>
-               <div  class="ei1_71_0_557"></div>
-               <span  class="ei1_71_0_559">Aprende más</span>
-            </div>
-            <div class=e1_72>
-               <div  class="ei1_72_0_557"></div>
-               <span  class="ei1_72_0_559">Aprende más</span>
-            </div>
-            <div class=e1_73>
-               <div  class="ei1_73_0_557"></div>
-               <span  class="ei1_73_0_559">Aprende más</span>
-            </div>
-            <div class=e1_74>
-               <div  class="ei1_74_0_557"></div>
-               <span  class="ei1_74_0_559">Aprende más</span>
-            </div>
-            <span  class="e1_75">Objetivo General</span><span  class="e1_76">Proporcionar un enfoque de entrenamiento integral que promueva la salud física y mental de sus miembros.</span><span  class="e1_77">Misión</span><span  class="e1_78">Convertirse en una comunidad de entrenamiento de referencia en su área, que promueva el entrenamiento funcional y la calistenia como una forma de vida y que inspire a sus miembros a alcanzar su máximo potencial físico y mental. También podrían buscar expandirse a nivel nacional e incluso internacional, ofreciendo su enfoque de entrenamiento a un público más amplio y diverso.</span><span  class="e1_79">Visión</span><span  class="e1_80">Ofrecer un enfoque de entrenamiento seguro, efectivo y progresivo que ayude a los miembros a alcanzar sus objetivos de fitness y mejorar su calidad de vida en general. Esto podría incluir programas de entrenamiento personalizados, seguimiento del progreso y educación sobre nutrición y otros aspectos de la salud.</span>
-         </div>
-         <div  class="e214_266"></div>
-         <div class=e217_425>
-            <div  class="e217_427"></div>
-            <span class="e217_428"   > </span>
-            <div  class="e217_429"></div>
-       <!--- Inicio del formulario--->
-            <div class=e217_430>
-               <div  class="e217_431"></div>
-            </div>
-            <span  class="e217_432">Contáctenos</span>
-            <div class=e217_433>
-               <span  class="e217_434">Nombre</span>
-               <div class=e217_435>
-                  <div class=e217_436><span  class="e217_437">Rachel Joe</span></div>
-               </div>
-            </div>
-            <div class=e217_438>
-               <span  class="e217_439">Email</span>
-               <div class=e217_440>
-                  <div class=e217_441><span  class="e217_442">Rachel@domain.com</span></div>
-               </div>
-            </div>
-            <div class=e217_443>
-               <span  class="e217_444">Mensaje</span>
-               <div class=e217_445>
-                  <div class=e217_446><span  class="e217_447">Mensaje</span></div>
-               </div>
-            </div>
-            <div class=e217_448>
-               <div  class="e217_449"></div>
-               <span  class="e217_450">Enviar</span>
-            </div>
-            <div class=e217_451>
-               <div  class="ei217_451_215_456"></div>
-               <div  class="ei217_451_215_457"></div>
-            </div>
-            <div class=e217_452>
-               <div  class="ei217_452_215_472"></div>
-               <div  class="ei217_452_215_473"></div>
-            </div>
-            <div class=e217_453>
-               <div  class="ei217_453_215_466"></div>
-               <div  class="ei217_453_215_467"></div>
-               <div  class="ei217_453_215_468"></div>
-            </div>
-            <div  class="e217_426"></div>
-         </div>
-         <div class=e218_690>
-            <div class=e218_691><span  class="e218_692">Costa Rica</span></div>
-            <span  class="e218_695">Gimnasio</span>
-            <div class=e218_697>
-               <div class=e218_698>
-                  <div class=e218_699>
-                    <div class=e218_700>
-           
-                     </div>
-                  </div>
-             <!--- Enlaces a las redes sociales--->
-               <a href= https://www.facebook.com/ftctraining.gym/?locale=es_LA> <span class="e218_702">Facebook</span> </a>
-                     <a class="nav-link" href= https://www.facebook.com/ftctraining.gym/?locale=es_LA><img src="{% static 'images/Colored_Facebook3_svg-512.webp' %}" class="img-fluid" style="width: 35px" ></a>
-               </div>
-               <div class=e218_703>
-                  <div class=e218_704>
-                     <div class=e218_705>
-
-
-                     </div>
-                  </div>
-                   <a href= https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA==> <span class="e218_707">Instagram</span> </a>
-                      <div class=e218_703>
-                           </div>
-                    <a class="nav-link" href= https://instagram.com/ftc_gym?igshid=MzRlODBiNWFlZA==><img src="{% static 'images/1_Instagram_colored_svg_1-512.webp' %}" class="img-fluid" style="width: 35px" ></a>
-               </div>
-            </div>
-             <!--- Palabras de Abajo!--->
-            <div class=e218_708>
-               <div class=e218_709><span  class="e218_710">Costa Rica</span></div>
-               <div class=e218_711><span  class="e218_712">Profresional</span></div>
-               <div class=e218_713><span  class="e218_714">Gym</span></div>
-               <div class=e218_715><span  class="e218_716">Training</span></div>
-               <div class=e218_717><span  class="e218_718">2023</span></div>
-            </div>
-            <span  class="e218_719">© Functional Training Calisthenic, 2023</span>
-         </div>
-
-
- </div>
-  <!--end body-->
-
-
-  </body>
-</html>
+    {% endblock %}
+{% endblock %}

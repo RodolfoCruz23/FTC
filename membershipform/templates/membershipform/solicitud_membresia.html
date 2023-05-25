@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
+{% block main_block %}
+
+
+            <!-- Main Content -->
+            <div class="my-5">
   <h1>Solicitud de membresía</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Enviar solicitud</button>
   </form>
+
+        </div>
+    </div>
+
+
 {% endblock %}
