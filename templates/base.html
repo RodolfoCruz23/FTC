@@ -23,13 +23,13 @@
           <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Servicios</a> <!---agregar los urls luego !----->
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a> <!---agregar los urls luego !----->
         </li>
         <li class="nav-item">
-          <a href="{% url 'about' %}" class="nav-link">About</a>
+          <a href="{% url 'horarios' %}" class="nav-link">Horarios</a>
         </li>
         <li class="nav-item">
-          <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+          <a href="{% url 'planes' %}" class="nav-link">Planes</a>
         </li>
       </ul>
     </div>
@@ -54,9 +54,9 @@
            <img src="{% static 'images/icons8-menú-50.png' %}" class="img-fluid" style="width: 25px">
           </a>
           <div class="dropdown-menu" aria-labelledby="moreOptionsDropdown">
-            <a class="dropdown-item" href="#">Option 1</a>
-            <a class="dropdown-item" href="#">Option 2</a>
-            <a class="dropdown-item" href="#">Option 3</a>
+            <a class="dropdown-item" href="{% url 'maps:map' %}">Ubicación</a>
+            <a class="dropdown-item" href="{% url 'gallery:gallery_display' %}">Galeria</a>
+            <a class="dropdown-item" href="{% url 'calendar:calendar' %}">Calendario</a>
             <!-- Add more options as needed -->
           </div>
         </li>

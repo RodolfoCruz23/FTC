@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
+            <!-- Main Content -->
+
+            <div class="my-5">
+                <br>
+                <h1>Horarios</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'images/horarios1.jpg' %}" class="img-fluid" alt="Image 1">
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/Horarios2.jpg' %}" class="img-fluid" alt="Image 2">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% endblock %}

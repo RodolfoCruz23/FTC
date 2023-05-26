@@ -1,40 +1,38 @@
-
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
 
-{% load static %}
-<img src="{% static 'gallery/galleria_landspace.jpg' %}" alt="Big Image" style="width: 100%; max-width: 100%; height: auto; display: block;">
-<h1>Gallery</h1>
+            <!-- Main Content -->
+            <div class="my-5">
+                <br>
+                <h1>Galeria</h1>
+            </div>
 
-<style>
-    .gallery-item {
-        width: calc(33.33% - 10px);
-        margin-right: 10px;
-        margin-bottom: 10px;
-        display: inline-block;
-        overflow: hidden;
-    }
+            <div class="row">
+                {% for gallery in object_list %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="{{ gallery.image.url }}" data-lightbox="gallery">
+                            <img class="card-img-top" src="{{ gallery.image.url }}" alt="{{ gallery.name }}">
+                        </a>
+                        <div class="card-body">
 
-    .gallery-item img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-</style>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
 
-<div class="gallery-grid">
-    {% for gallery in object_list %}
-    <div class="gallery-item">
-        <a href="{{ gallery.image.url }}" data-lightbox="gallery">
-            <img src="{{ gallery.image.url }}" alt="{{ gallery.name }}">
-        </a>
-        <div class="gallery-caption">
-            <h3>{{ gallery.name }}</h3>
         </div>
     </div>
-    {% endfor %}
-</div>
-
-
+<br>
+{% endblock %}
 {% endblock %}

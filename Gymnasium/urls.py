@@ -25,8 +25,10 @@ from maps.views import map_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.about, name='contact'),
+    path('horarios/', views.horarios, name='horarios'),
+    path('servicios/', views.servicios, name='servicios'),
+    path('planes/', views.planes, name='planes'),
+    path('contact/', views.contact, name='contact'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('notifications/', include('notifications.urls')),
@@ -37,12 +39,13 @@ urlpatterns = [
     path('schedules/', include('schedules.urls')),
     path('', include('personal.urls')),
     path('', include('photo.urls')),
-    path('gallery/', include('gallery.urls')),
+    path('gallery/', include('gallery.urls', namespace='gallery')),
     path('calculatorIMC/', include('calculatorIMC.urls')),
     path('social_media/', include('social_media.urls')),
     path('membership/', include('membership.urls')),
     path('', include('calendario.urls')),
-    path('maps/', map_view, name='map'),
+    path('calendario/', include('calendario.urls', namespace='calendar')),
+    path('maps/', include('maps.urls', namespace='maps')),
     path('membershipform/', include('membershipform.urls')),
 ]
 

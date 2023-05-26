@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <h1>Instructores</h1>
-  {% for instructor in object_list %}
-    <div>
-      <img src="{{ instructor.image.url }}" alt="{{ instructor.name }}" width="100" height="100">
-      <h3>{{ instructor.name }}</h3>
-      <p>{{ instructor.bio }}</p>
-      <p>{{ instructor.certifications }}</p>
-      <p>{{ instructor.experience_years }}</p>
-    </div>
-  {% empty %}
-    <p>No instructors found.</p>
-  {% endfor %}
-{% endblock content %}
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
+            <!-- Main Content -->
+
+            <div class="my-5">
+                <br>
+                <h1>Instructores</h1>
+            </div>
+{% for instructor in object_list %}
+  <div style="margin-bottom: 100px;">
+    <h2>{{ instructor.name }}</h2>
+    <img src="{{ instructor.image.url }}" alt="{{ instructor.name }}" width="200" style="float: right; margin-left: 10px; border-radius: 50%;">
+    <p><h3 style="background-color: #FB9D2E; color: white; padding: 10px;">{{ instructor.title }}</h3></p>
+    <p style="background-color: #24436E; color: white; padding: 10px;">{{ instructor.description|linebreaksbr }}</p>
+  </div>
+{% empty %}
+  <p>No instructors found.</p>
+{% endfor %}
+
+<div style="margin-bottom: 100px;">
+{% endblock %}
+{% endblock %}
+

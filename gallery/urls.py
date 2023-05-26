@@ -3,6 +3,8 @@ from django.urls import path
 from . import views
 from .views import GalleryDisplayView
 
+app_name = 'gallery'
+
 urlpatterns = [
     path('', views.GalleryList.as_view(), name='gallery_list'),
     path('view/<int:pk>', views.GalleryView.as_view(), name='gallery_view'),

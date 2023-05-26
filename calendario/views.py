@@ -23,9 +23,16 @@ class CalendarView(generic.ListView):
         # Instantiate our calendar class with today's year and date
         calendario = Calendar(d.year, d.month)
 
+        # Get the events for the current month
+        events = Event.objects.filter(
+            start_time__year=d.year,
+            start_time__month=d.month
+        )
+
         # Call the formatmonth method, which returns our calendar as a table
         html_cal = calendario.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
+        context['events'] = events
         return context
 
 def get_date(req_day):

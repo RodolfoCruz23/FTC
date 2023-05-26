@@ -1,12 +1,60 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <div class="container mt-4 mb-4">
-        <h1>Calendario</h1>
-        <div class="calendar">
-{{ calendar }}
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
+            <!-- Main Image -->
+
+            <!-- Main Content -->
+            <div class="my-5">
+                <br>
+                <h1>Calendario</h1>
+            </div>
+            <div class="row">
+                <!-- Eventos -->
+                <div class="col-md-6">
+                    <h2>Eventos</h2>
+                    <ul class="event-list">
+                        {% for event in events %}
+                            <li>
+                                <h3>{{ event.title }}</h3>
+                                <p>{{ event.description }}</p>
+                                <p>Fecha: {{ event.start_time }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Calendario -->
+                <div class="col-md-6">
+                    <div class="calendar">
+                        {{ calendar }}
                     </div>
+                </div>
+            </div>
+        </div>
     </div>
-<!-- blank space  -->
-<div></div>
+
+    <style>
+        /* Custom CSS for calendar */
+        .calendar table {
+            width: 100%;
+        }
+
+        .calendar td {
+            padding: 10px;
+            /* Adjust the desired height for each day */
+            height: 100px;
+        }
+
+        /* Add any additional CSS styles as needed */
+    </style>
+
 {% endblock %}
+{% endblock %}
+
+
+

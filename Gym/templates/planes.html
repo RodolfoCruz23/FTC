@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
+            <!-- Main Image -->
+            <div class="container-fluid px-0"> <!-- Added "px-0" class to remove padding -->
+                <img src="{% static 'images/main_image.jpg' %}" style="width: 100%;"> <!-- Added "w-100" class to make the image full width -->
+            </div>
+
+            <!-- Main Content -->
+            <div class="my-5">
+                <h1>Planes de membresía</h1>
+            </div>
+
+            <!-- Plans -->
+            <div class="my-5">
+                <h2>Tenemos varios tipos de planes:</h2>
+                <br>
+
+                <h3>Plan Individual:</h3>
+                <ul>
+                    <li>2 días por semana - ₡25,000/mes</li>
+                    <li>3 días por semana - ₡28,000/mes</li>
+                    <li>Ilimitado - ₡30,000/mes</li>
+                </ul>
+
+                <p><strong>Importante:</strong></p>
+                <ul>
+                    <li>Precios no incluyen costo de matrícula de ₡10,000</li>
+                    <li>Precios no incluyen costo de anualidad de mantenimiento de ₡8,000 (2 meses de tiempo para cancelar)</li>
+                    <li>Clase de Yoga solamente aplica para planes ilimitados</li>
+                    <li>Solamente se permite una clase por día</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 100px;"></div> <!-- Add space using margin-bottom -->
+
+        </div>
+    </div>
+{% endblock %}
+{% endblock %}
