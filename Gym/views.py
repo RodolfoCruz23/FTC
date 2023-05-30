@@ -21,8 +21,8 @@ def servicios(request):
     return render(request, 'servicios.html')
 
 
-def contact(request):
-    return render(request, 'contact.html')
+def contacto(request):
+    return render(request, 'contacto.html')
 
 def planes(request):
     return render(request, 'planes.html')

@@ -28,7 +28,7 @@ urlpatterns = [
     path('horarios/', views.horarios, name='horarios'),
     path('servicios/', views.servicios, name='servicios'),
     path('planes/', views.planes, name='planes'),
-    path('contact/', views.contact, name='contact'),
+    path('contacto/', views.contacto, name='contacto'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('notifications/', include('notifications.urls')),

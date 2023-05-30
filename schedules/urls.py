@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+app_name = 'schedule'
+
 urlpatterns = [
     path('', views.ScheduleList.as_view(), name='schedule_list'),
     path('view/<int:pk>', views.ScheduleView.as_view(), name='schedule_view'),
