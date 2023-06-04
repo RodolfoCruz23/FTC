@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load tags %}
-
-{% block title %}
-    Members
-{% endblock %}
+{% load static %}
 
 {% block content %}
+{% block main_block %}
 <style type="text/css">
   .req{
     text-decoration: none;
@@ -141,4 +139,5 @@
       $('#modal').modal('show');
     });
   </script>
+{% endblock %}
 {% endblock %}

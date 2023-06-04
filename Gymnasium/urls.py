@@ -30,6 +30,7 @@ urlpatterns = [
     path('planes/', views.planes, name='planes'),
     path('contacto/', views.contacto, name='contacto'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),  # Add this line to include the URLs of the accounts app
     path('members/', include('members.urls')),
     path('notifications/', include('notifications.urls')),
     path('reports/', include('reports.urls')),

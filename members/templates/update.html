@@ -1,7 +1,12 @@
+
+
+
 {% extends 'base.html' %}
 {% load tags %}
+{% load static %}
 
 {% block content %}
+{% block main_block %}
     {% if messages %}
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="addTaskTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -191,4 +196,5 @@ $(window).on('load', function(){
   $('#modal').modal('show');
 });
 </script>
+{% endblock %}
 {% endblock %}

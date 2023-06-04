@@ -9,8 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
-    <!-- Custom -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!-- Custom -->
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 {% block sidebar %}
@@ -51,16 +51,20 @@
         <!-- Add More Options button -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="moreOptionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <img src="{% static 'images/icons8-menú-50.png' %}" class="img-fluid" style="width: 25px">
+            <img src="{% static 'images/icons8-menú-50.png' %}" class="img-fluid" style="width: 25px">
           </a>
           <div class="dropdown-menu" aria-labelledby="moreOptionsDropdown">
             <a class="dropdown-item" href="{% url 'maps:map' %}">Ubicación</a>
             <a class="dropdown-item" href="{% url 'gallery:gallery_display' %}">Galeria</a>
             <a class="dropdown-item" href="{% url 'calendar:calendar' %}">Calendario</a>
-             <a class="dropdown-item" href="{% url 'personal:instructor_list' %}">Instructores</a>
-              <a class="dropdown-item" href="{% url 'schedule:schedule_list' %}">Programas</a>
+            <a class="dropdown-item" href="{% url 'personal:instructor_list' %}">Instructores</a>
+            <a class="dropdown-item" href="{% url 'schedule:schedule_list' %}">Programas</a>
             <a class="dropdown-item" href="{% url 'contact_list' %}">Contacto</a>
           </div>
+        </li>
+        <!-- Add Login button -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
       </ul>
     </div>

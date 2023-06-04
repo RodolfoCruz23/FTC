@@ -2,12 +2,8 @@
 {% load tags %}
 {% load static %}
 
-{% block title %}
-    Members
-{% endblock %}
-
 {% block content %}
-
+{% block main_block %}
 <div class="container" style="margin-top: 3%">
     {% if deleted %}
         <div class="alert alert-success">
@@ -337,4 +333,5 @@
         }
     });
     </script>
+{% endblock %}
 {% endblock %}

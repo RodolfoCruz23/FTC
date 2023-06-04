@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-    PowerPack
-{% endblock %}
-
 {% block content %}
+{% block main_block %}
 {% if success %}
 <div class="alert alert-success" style="margin-top: 3%; margin-bottom: 3%">
   {{ success }}
@@ -23,4 +20,5 @@
         <button type="submit" id="submit" class="btn btn-danger">Change</button>
     </div>
 </form>
+{% endblock %}
 {% endblock %}
