@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galería de Videos</title>
+</head>
+<body>
+    <h1>Galería de Videos</h1>
+
+    {% for video in videos %}
+        <div>
+            <h2>{{ video.titulo }}</h2>
+            <iframe width="560" height="315" src="{{ video.url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,22 +1,14 @@
-from django.http import HttpResponse
-from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView
-from django.urls import reverse_lazy
+from django.shortcuts import render
 
-from calculatorIMC.models import CalculatorIMC
+def calculate_bmi_view(request):
+    if request.method == 'POST':
+        weight = float(request.POST['weight'])
+        height = float(request.POST['height'])
 
+        # Realiza el cálculo del IMC
+        bmi = weight / (height ** 2)
 
-class CalculatorIMCView(DetailView):
-    model = CalculatorIMC
+        context = {'bmi': bmi}
+        return render(request, 'calculatorIMC/result.html', context)
 
-
-class CalculatorIMCCreate(CreateView):
-    model = CalculatorIMC
-    fields = ['height', 'weight', 'imc']
-    success_url = reverse_lazy('calculatorIMC_form')
-
-
-class CalculatorIMCUpdate(UpdateView):
-    model = CalculatorIMC
-    fields = ['height', 'weight', 'imc']
-    success_url = reverse_lazy('calculatorIMC_form')
+    return render(request, 'calculatorIMC/form.html')

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Resultado del IMC</h1>
+
+</body>
+</html>
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% block main_block %}
+    <div class="container">
+        <!-- Add your main block content here -->
+        <div class="mt-5">
+            <!-- Main Content -->
+
+            <div class="my-5">
+                <br>
+                <h1>Resultado del IMC</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Tu índice de masa corporal (IMC) es: {{ bmi }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% endblock %}

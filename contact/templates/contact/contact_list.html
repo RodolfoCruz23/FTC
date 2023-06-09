@@ -38,9 +38,6 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
-            <th>View</th>
-            <th>Edit</th>
-            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -50,14 +47,10 @@
             <td>{{ contact.email }}</td>
             <td>{{ contact.phone }}</td>
             <td>{{ contact.address }}</td>
-            <td><a href="{% url 'contact_view' contact.pk %}">View</a></td>
-            <td><a href="{% url 'contact_edit' contact.pk %}">Edit</a></td>
-            <td><a href="{% url 'contact_delete' contact.pk %}">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-<a href="{% url 'contact_new' %}">New</a>
 {% endblock %}
 {% endblock %}

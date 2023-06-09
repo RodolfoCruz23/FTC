@@ -22,6 +22,7 @@ from Gym import views
 from Gym.views import home
 from maps.views import map_view
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -35,19 +36,19 @@ urlpatterns = [
     path('notifications/', include('notifications.urls')),
     path('reports/', include('reports.urls')),
     path('login', include('accounts.urls')),
-    path('books/', include('books.urls')),
     path('contact/', include('contact.urls')),
     path('schedules/', include('schedules.urls')),
     path('', include('personal.urls')),
     path('', include('photo.urls')),
     path('gallery/', include('gallery.urls', namespace='gallery')),
-    path('calculatorIMC/', include('calculatorIMC.urls')),
     path('social_media/', include('social_media.urls')),
     path('membership/', include('membership.urls')),
     path('', include('calendario.urls')),
     path('calendario/', include('calendario.urls', namespace='calendar')),
     path('maps/', include('maps.urls', namespace='maps')),
     path('membershipform/', include('membershipform.urls')),
+    path('calculatorIMC/', include('calculatorIMC.urls')),
+    path('videos/', include('videos.urls')),
 ]
 
 

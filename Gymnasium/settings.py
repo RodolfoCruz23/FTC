@@ -25,6 +25,12 @@ SECRET_KEY = 'k6_^w5l$q(85$r_vc*ou9q!aa8hh_aczk425&iw6w4qx$=cg=l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Enable maintenance mode
+# MAINTENANCE_MODE = True
+
+# Disable maintenance mode
+MAINTENANCE_MODE = False
+
 ALLOWED_HOSTS = ['*']
 
 # After succesful login go to path:
@@ -47,18 +53,19 @@ INSTALLED_APPS = [
     'notifications',
     'reports',
     'payments',
-    'books',
     'contact',
     'schedules',
     'personal',
     'photo.apps.PhotoConfig',
     'gallery',
-    'calculatorIMC',
     'social_media',
     'membership',
     'calendario',
     'maps',
-    'membershipform'
+    'membershipform',
+    'calculatorIMC',
+    'videos',
+    'maintenance_mode',
 
 ]
 
@@ -70,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'maintenance_mode.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'Gymnasium.urls'
@@ -85,6 +93,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'maintenance_mode.context_processors.maintenance_mode',
             ],
         },
     },
