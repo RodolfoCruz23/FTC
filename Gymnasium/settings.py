@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'membershipform',
     'calculatorIMC',
     'videos',
+    'embed_video',
 
 ]
 
@@ -164,3 +165,15 @@ PHOTOS_URL = os.path.normpath(MEDIA_URL+'/photos/')
 
 # in settings.py
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.template.context_processors.request',
+)
+
+EMBED_VIDEO_BACKENDS = (
+    'embed_video.backends.YoutubeBackend',
+    'embed_video.backends.VimeoBackend',
+    'embed_video.backends.SoundCloudBackend',
+    'my_app.backends.CustomBackend',
+)
