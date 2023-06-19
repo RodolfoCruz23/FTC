@@ -29,7 +29,7 @@ DEBUG = True
 # MAINTENANCE_MODE = True
 
 # Disable maintenance mode
-MAINTENANCE_MODE = False
+# MAINTENANCE_MODE = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'membershipform',
     'calculatorIMC',
     'videos',
-    'maintenance_mode',
 
 ]
 
@@ -76,8 +75,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'maintenance_mode.middleware.MaintenanceModeMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'Gymnasium.urls'
@@ -92,8 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'maintenance_mode.context_processors.maintenance_mode',
+                'django.contrib.messages.context_processors.messages'
             ],
         },
     },
